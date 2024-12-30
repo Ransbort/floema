@@ -1,23 +1,27 @@
 {
   "name": "floema",
   "version": "1.0.0",
+  "type": "module",
+  "main": "app.js",
   "scripts": {
-    "start": "npm run development",
-    "development": "webpack serve --progress --config webpack.config.development.js",
-    "build": "webpack --progress --config webpack.config.build.js"
+    "backend:build": "node app.js",
+    "backend:development": "nodemon app.js",
+    "start": "concurrently --kill-others \"npm run backend:development\" \"npm run frontend:development\"",
+    "frontend:development": "webpack serve --progress --config webpack.config.development.js",
+    "frontend:build": "webpack --progress --config webpack.config.build.js"
   },
   "author": "Ransford Borketey",
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
-    "@eslint/js": "^9.16.0",
+    "@eslint/js": "^9.17.0",
     "babel-loader": "^9.2.1",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^12.0.2",
     "css-loader": "^7.1.2",
-    "eslint": "^9.16.0",
+    "eslint": "^9.17.0",
     "eslint-plugin-prettier": "^5.2.1",
     "file-loader": "^6.2.0",
-    "globals": "^15.13.0",
+    "globals": "^15.14.0",
     "glslify-loader": "^2.0.0",
     "image-minimizer-webpack-plugin": "^4.1.1",
     "imagemin": "^9.0.0",
@@ -29,10 +33,19 @@
     "raw-loader": "^4.0.2",
     "sass": "^1.82.0",
     "sass-loader": "^16.0.4",
-    "terser-webpack-plugin": "^5.3.10",
+    "terser-webpack-plugin": "^5.3.11",
     "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0",
     "webpack-merge": "^6.0.1"
+  },
+  "dependencies": {
+    "@prismicio/client": "^7.13.1",
+    "@prismicio/helpers": "^2.3.9",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.9",
+    "pug": "^3.0.3"
   }
 }
