@@ -1,22 +1,27 @@
-const {merge} = require('webpack-merge');
-const path = require('path');
+import { merge } from 'webpack-merge';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-const config = require('./webpack.config');
+import config from './webpack.config.js';
 
-module.exports = merge(config, {
-    mode: 'development',
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-    devtool: 'inline-source-map',
+export default merge(config, {
+ mode: 'development',
 
-    devServer: {
-        devMiddleware: {
-            writeToDisk: true,
-        },
-    },
+ devtool: 'inline-source-map',
 
-    output: {
-        path: path.resolve(__dirname, 'public'),
-        assetModuleFilename: '[name][ext]',
-        clean: true,
-    }
-})
+ devServer: {
+  devMiddleware: {
+   writeToDisk: true,
+  },
+ },
+
+ output: {
+  path: path.resolve(__dirname, 'public'),
+  assetModuleFilename: '[name][ext]',
+  clean: true,
+ },
+});
