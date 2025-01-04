@@ -1,0 +1,41 @@
+// UTILS
+// Functions - Specify 'Functions, Mixins & Variables in each file using @use'
+//@use 'utils/variables';
+//@use 'utils/functions';
+//@use 'utils/mixins';
+@use 'utils/vendors';
+
+// BASE
+@use 'base/fonts';
+@use 'base/reset';
+@use 'base/base';
+
+// PAGES
+// About
+@use 'pages/about/about';
+@use 'pages/about/content';
+@use 'pages/about/gallery';
+@use 'pages/about/highlights';
+
+// COLLECTIONS
+@use 'pages/collections/collections';
+
+// DETAILS
+@use 'pages/details/details';
+// HOME
+@use 'pages/home/home';
+
+// LAYOUT
+// Navigation
+@use 'layout/navigation';
+
+// COMPONENTS
+// Components
+@use 'components/preloader';
+
+
+
+
+
+
+

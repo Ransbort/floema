@@ -1,0 +1,23 @@
+@use '../../utils/variables' as var;
+@use '../../utils/mixins' as mixins;
+@use '../../utils/functions' as func;
+
+.about {
+
+  &__highlight {
+    &__wrapper {
+
+    }
+
+    &__label {
+
+    }
+
+    &__title {
+
+    }
+
+  }
+
+}
+

@@ -1,0 +1,29 @@
+@use '../../utils/variables' as var;
+@use '../../utils/mixins' as mixins;
+@use '../../utils/functions' as func;
+
+// Content Scss
+.about {
+
+  &__content {
+    &__wrapper {
+
+    }
+
+    &__label {
+
+    }
+
+    &__description {
+
+    }
+
+    &__media {
+      &__image {
+
+      }
+    }
+  }
+
+
+}
