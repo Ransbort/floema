@@ -23,8 +23,7 @@ html(lang="en")
     meta(name="og:image" content=meta.data.image ? meta.data.image.url : '')
     meta(name="og:type" content="website")
 
-    style
-      include ../public/main.css
+    link(rel="stylesheet" type="text/css" href="/main.css")
 
   body
     include ./partials/preloader

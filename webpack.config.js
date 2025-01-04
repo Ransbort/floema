@@ -79,37 +79,51 @@ export default {
        publicPath: '',
       },
      },
+
      {
       loader: 'css-loader',
      },
+
      {
       loader: 'postcss-loader',
      },
+
      {
       loader: 'sass-loader',
      },
     ],
    },
+
    {
-    test: /\.(jpe?g|png|gif|svg|woff2?|fnt|webp)$/,
-    loader: 'file-loader',
-    options: {
-     name(file) {
-      return '[hash].[ext]';
-     },
+    test: /\.(png|jpg|gif|jpe?g|svg|webp|mp4)$/,
+    type: 'asset/resource',
+    generator: {
+     filename: '[name].[hash].[ext]',
+     publicPath: '',
+     outputPath: '/assets',
     },
    },
+
+   {
+    test: /\.(woff2?|fnt)$/,
+    type: 'asset/inline',
+   },
+
    {
     test: /\.(jpe?g|png|gif|svg|webp)$/i,
-    use: {
-     loader: ImageMinimizerPlugin.loader,
-    },
+    use: [
+     {
+      loader: ImageMinimizerPlugin.loader,
+     },
+    ],
    },
+
    {
     test: /\.(glsl|frag|vert)$/,
-    loader: 'raw-loader',
+    type: 'asset/source', // replaced raw-loader
     exclude: /node_modules/,
    },
+
    {
     test: /\.(glsl|frag|vert)$/,
     loader: 'glslify-loader',
