@@ -1,7 +1,7 @@
 // Essential Webpack Plugins
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+// import { dirname } from 'path';
 import webpack from 'webpack';
 
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
@@ -12,8 +12,7 @@ import TerserPlugin from 'terser-webpack-plugin';
 
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'dev';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const dirApp = path.join(__dirname, 'app');
 const dirShared = path.join(__dirname, 'shared');

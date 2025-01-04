@@ -1,12 +1,11 @@
 import { merge } from 'webpack-merge';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+// import { dirname } from 'path';
 
 import config from './webpack.config.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default merge(config, {
  mode: 'development',
