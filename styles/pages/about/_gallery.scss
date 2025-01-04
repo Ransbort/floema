@@ -1,0 +1,20 @@
+@use '../../utils/variables' as var;
+@use '../../utils/mixins' as mixins;
+@use '../../utils/functions' as func;
+
+.about {
+
+  &__gallery {
+    &__wrapper {
+
+    }
+
+    &__media {
+      &__image {
+
+      }
+    }
+  }
+
+
+}

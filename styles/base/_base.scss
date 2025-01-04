@@ -1,0 +1,11 @@
+@use '../utils/variables' as var;
+@use '../utils/mixins' as mixins;
+@use '../utils/functions' as func;
+
+@use '../shared/titles' as *;
+@use '../shared/descriptions' as *;
+
+body {
+  @extend %description-12;
+  @
+}
