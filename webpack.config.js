@@ -99,8 +99,6 @@ export default {
     type: 'asset/resource',
     generator: {
      filename: '[name].[hash].[ext]',
-     publicPath: '',
-     outputPath: '/assets',
     },
    },
 
