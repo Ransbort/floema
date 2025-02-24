@@ -15,7 +15,7 @@ import { asHTML } from '@prismicio/client';
 import fetch from 'node-fetch';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // app.use(logger('dev'));
 // app.use(bodyParser.json());
@@ -25,8 +25,13 @@ const port = 3000;
 
 // Set PUG as templating engine
 app.set('view engine', 'pug');
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// console.log(__dirname);
 
 function linkResolver(doc) {
  if (doc.type === 'product') {
@@ -83,7 +88,7 @@ app.get('/', async (req, res) => {
   // fetchLinks: 'collection.title',
  });
 
- console.log(defaults);
+ // console.log(defaults);
 
  res.render('pages/home', {
   ...defaults,

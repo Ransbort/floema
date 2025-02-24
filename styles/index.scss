@@ -4,11 +4,15 @@
 //@use 'utils/functions';
 //@use 'utils/mixins';
 @use 'utils/vendors';
+//@use 'utils/responsive';
 
 // BASE
 @use 'base/fonts';
 @use 'base/reset';
 @use 'base/base';
+
+// Components
+@use 'components/preloader';
 
 // PAGES
 // About
@@ -30,8 +34,7 @@
 @use 'layout/navigation';
 
 // COMPONENTS
-// Components
-@use 'components/preloader';
+
 
 
 

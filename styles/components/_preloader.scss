@@ -1,3 +1,26 @@
 @use '../utils/variables' as var;
-@use '../utils/mixins' as mixins;
+@use '../utils/mixins' as *;
 @use '../utils/functions' as func;
+@use '../shared/titles' as *;
+
+.preloader {
+  @extend %cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  &__text {
+    @extend %title-53;
+
+    max-width: 66rem;
+  }
+
+
+  &__number {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

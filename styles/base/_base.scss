@@ -1,11 +1,18 @@
 @use '../utils/variables' as var;
 @use '../utils/mixins' as mixins;
 @use '../utils/functions' as func;
+@use '../utils/responsive' as *;
 
 @use '../shared/titles' as *;
 @use '../shared/descriptions' as *;
 
+
 body {
   @extend %description-12;
-  @
+
+  font-family: var.$font-suisse-bp;
+
+  @include media('<=phone') {
+    font-size: 10rem;
+  }
 }
