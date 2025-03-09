@@ -1,3 +1,59 @@
 @use '../utils/variables' as var;
-@use '../utils/mixins' as mixins;
+@use '../utils/mixins' as *;
 @use '../utils/functions' as func;
+@use '../utils/responsive' as *;
+
+@use '../shared/titles' as *;
+@use '../shared/descriptions' as *;
+@use '../shared/vertical-titles' as *;
+
+@use 'sass:map';
+
+
+.navigation {
+  @extend %cover;
+  position: fixed;
+
+  z-index: map.get(var.$z-indexes, 'navigation');
+  pointer-events: none;
+
+  &__link {
+    font-size: 0;
+    position: absolute;
+    left: 4rem;
+    top: 4rem;
+    width: 12.8rem;
+    pointer-events: auto;
+    height: 2rem;
+
+    @include media('<phone') {
+      left: 5rem;
+      top: 6rem;
+      width: 27.9rem;
+      height: 4.3rem;
+    }
+
+    &__icon {
+      display: block;
+      color: var.$color-quarter-spanish-white;
+    }
+  }
+
+  &__list {
+    &__item {
+      position: absolute;
+      right: 4rem;
+      top: 4rem;
+      pointer-events: auto;
+    }
+
+    &__link {
+      @extend %title-20;
+      left: 4rem;
+
+      display: block;
+
+    }
+  }
+}
+

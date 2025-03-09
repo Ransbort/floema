@@ -6,13 +6,42 @@
 @use '../shared/titles' as *;
 @use '../shared/descriptions' as *;
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(100vw / 1920 * 10);
+  line-height: 1;
+
+  color: var.$color-quarter-spanish-white;
+
+  @include media('<=phone') {
+    font-size: calc(100vw / 768 * 10);
+  }
+}
 
 body {
-  @extend %description-12;
+  @extend %description-16;
 
   font-family: var.$font-suisse-bp;
 
-  @include media('<=phone') {
-    font-size: 10rem;
-  }
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: inherit;
+}
+
+img {
+  vertical-align: middle;
+}
+
+button {
+  color: inherit;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  border: none;
 }

@@ -1,14 +1,11 @@
+@use 'base/reset';
+
 // UTILS
-// Functions - Specify 'Functions, Mixins & Variables in each file using @use'
-//@use 'utils/variables';
-//@use 'utils/functions';
-//@use 'utils/mixins';
+
 @use 'utils/vendors';
-//@use 'utils/responsive';
 
 // BASE
 @use 'base/fonts';
-@use 'base/reset';
 @use 'base/base';
 
 // Components

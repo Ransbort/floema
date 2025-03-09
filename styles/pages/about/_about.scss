@@ -1,8 +1,14 @@
 @use '../../utils/variables' as var;
 @use '../../utils/mixins' as mixins;
 @use '../../utils/functions' as func;
+@use '../../utils/responsive' as *;
+
+@use '../../shared/titles' as *;
+@use '../../shared/descriptions' as *;
 
 .about {
+  background: var.$color-cadet-blue;
+  color: var.$color-bright-gray;
 
   &__wrapper {
 
@@ -21,7 +27,15 @@
   }
 
   &__title {
+    @extend %title-100;
+    max-width: 124rem;
+    margin: auto;
+    text-align: center;
 
+    @include media('<phone') {
+      max-width: 67.7rem;
+
+    }
   }
 
   &__content {

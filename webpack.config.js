@@ -23,12 +23,12 @@ export default {
  entry: [path.join(dirApp, 'index.js'), path.join(dirStyles, 'index.scss')],
 
  resolve: {
-  modules: [dirApp, dirShared, dirStyles, dirNode],
+  modules: [dirApp, dirShared, dirStyles, dirNode]
  },
 
  plugins: [
   new webpack.DefinePlugin({
-   IS_DEVELOPMENT,
+   IS_DEVELOPMENT
   }),
 
   new CleanWebpackPlugin(),
@@ -37,14 +37,14 @@ export default {
    patterns: [
     {
      from: './shared',
-     to: '',
-    },
-   ],
+     to: ''
+    }
+   ]
   }),
 
   new MiniCssExtractPlugin({
    filename: '[name].css',
-   chunkFilename: '[id].css',
+   chunkFilename: '[id].css'
   }),
 
   new ImageMinimizerPlugin({
@@ -54,11 +54,11 @@ export default {
      plugins: [
       ['gifsicle', { interlaced: true }],
       ['jpegtran', { progressive: true }],
-      ['optipng', { optimizationLevel: 8 }],
-     ],
-    },
-   },
-  }),
+      ['optipng', { optimizationLevel: 8 }]
+     ]
+    }
+   }
+  })
  ],
 
  module: {
@@ -66,8 +66,8 @@ export default {
    {
     test: /\.js$/,
     use: {
-     loader: 'babel-loader',
-    },
+     loader: 'babel-loader'
+    }
    },
 
    {
@@ -76,62 +76,68 @@ export default {
      {
       loader: MiniCssExtractPlugin.loader,
       options: {
-       publicPath: '',
-      },
+       publicPath: ''
+      }
      },
 
      {
-      loader: 'css-loader',
+      loader: 'css-loader'
      },
 
      {
-      loader: 'postcss-loader',
+      loader: 'postcss-loader'
      },
 
      {
       loader: 'sass-loader',
-     },
-    ],
+      options: {
+       sassOptions: {
+        // quietDeps: true,
+        silenceDeprecations: ['import']
+       }
+      }
+     }
+    ]
    },
 
    {
     test: /\.(png|jpg|gif|jpe?g|svg|webp|mp4)$/,
     type: 'asset/resource',
     generator: {
-     filename: '[name].[hash].[ext]',
-    },
+     filename: '[name].[hash].[ext]'
+    }
    },
 
    {
     test: /\.(woff2?|fnt)$/,
-    type: 'asset/inline',
+    type: 'asset/inline'
    },
 
    {
     test: /\.(jpe?g|png|gif|svg|webp)$/i,
     use: [
      {
-      loader: ImageMinimizerPlugin.loader,
-     },
-    ],
+      loader: ImageMinimizerPlugin.loader
+     }
+    ]
    },
 
    {
     test: /\.(glsl|frag|vert)$/,
     type: 'asset/source', // replaced raw-loader
-    exclude: /node_modules/,
+    exclude: /node_modules/
    },
 
    {
     test: /\.(glsl|frag|vert)$/,
     loader: 'glslify-loader',
-    exclude: /node_modules/,
-   },
-  ],
+    exclude: /node_modules/
+   }
+  ]
  },
 
  optimization: {
   minimize: true,
-  minimizer: [new TerserPlugin()],
- },
+  minimizer: [new TerserPlugin()]
+ }
 };

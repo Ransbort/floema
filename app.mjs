@@ -3,7 +3,7 @@ import path from 'path';
 import express from 'express';
 
 import { fileURLToPath } from 'url';
-import { client } from './config/prismicConfig.js';
+import { client } from './config/prismicConfig.mjs';
 import * as prismic from '@prismicio/client';
 import { asHTML } from '@prismicio/client';
 
@@ -59,7 +59,7 @@ const requestHandler = async (client) => {
  return {
   meta,
   preloader,
-  navigation,
+  navigation
  };
 };
 
@@ -67,7 +67,7 @@ app.use((req, res, next) => {
  res.locals.ctx = {
   prismic,
   asHTML,
-  fetch,
+  fetch
  };
 
  res.locals.Link = linkResolver;
@@ -93,7 +93,7 @@ app.get('/', async (req, res) => {
  res.render('pages/home', {
   ...defaults,
   collections,
-  home,
+  home
  });
 });
 
@@ -103,14 +103,14 @@ app.get('/about', async (req, res) => {
 
  res.render('pages/about', {
   ...defaults,
-  about,
+  about
  });
 });
 
 app.get('/collections', async (req, res) => {
  // Here we are retrieving the "collection" document from the API endpoint
  const collections = await client.getAllByType('collection', {
-  fetchLinks: 'product.image',
+  fetchLinks: 'product.image'
  });
  const home = await client.getSingle('home');
  const defaults = await requestHandler(client);
@@ -118,7 +118,7 @@ app.get('/collections', async (req, res) => {
  res.render('pages/collections', {
   ...defaults,
   collections,
-  home,
+  home
  });
 });
 
@@ -132,10 +132,10 @@ app.get('/detail/:uid', async (req, res) => {
 
  const defaults = await requestHandler(client);
 
- console.log(product);
+ // console.log(product);
  res.render('pages/detail', {
   ...defaults,
-  product,
+  product
  });
 });
 

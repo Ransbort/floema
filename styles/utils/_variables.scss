@@ -1,10 +1,12 @@
 // Colors
-//Primary
-//Secondary
-
 //Base
-$color-black: #000;
-$color-white: #fff;
+
+// Primary
+$color-contessa: #c97164;
+$color-quicksand: #bc978c;
+$color-quarter-spanish-white: #f9f1e7;
+$color-cadet-blue: #b2bbc3;
+$color-bright-gray: #37384c;
 
 
 // Font Family
@@ -15,8 +17,9 @@ $ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
 
 // Z - Index Handler
 $z-indexes: (
-  'navigation',
-  'content'
+  'navigation' : 10,
+  'content' : 8,
+  'preloader': 6,
 )
 
 

@@ -1,34 +1,95 @@
 @use '../../utils/variables' as var;
-@use '../../utils/mixins' as mixins;
+@use '../../utils/mixins' as *;
 @use '../../utils/functions' as func;
+@use '../../utils/responsive' as *;
+
+@use '../../shared/titles' as *;
+@use '../../shared/descriptions' as *;
+@use '../../shared/vertical-titles' as *;
 
 .home {
-  &__wrapper {
+  @extend %center;
+  @extend %cover;
 
+  color: var.$color-quarter-spanish-white;
+  background: var.$color-contessa;
+
+  overflow: hidden;
+  text-align: center;
+
+  &::before,
+  &::after {
+    content: '';
+    height: 24rem;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    left: 0;
+  }
+
+  &::before {
+    background: linear-gradient(to bottom, var.$color-contessa 0%, rgba(var.$color-contessa, 0) 100%);
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    background: linear-gradient(to bottom, var.$color-contessa 0%, rgba(var.$color-contessa, 0) 100%);
   }
 
   &__titles {
-    &__label {
+    @extend %vertical-titles;
 
+    &__label {
+      @extend %vertical-titles__label;
     }
 
     &__title {
-
+      @extend %vertical-titles__title;
     }
   }
 
   &__gallery {
-    &__media {
+    @extend %cover;
+    visibility: hidden;
 
+    &__media {
+      position: absolute;
     }
 
-    &__image {
-
+    &__media__image {
+      //opacity: 1;
     }
   }
+
 
   &__link {
+    @extend %description-14;
 
+    letter-spacing: 0.05rem;
+    width: 28.84em;
+    height: 6rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    text-transform: uppercase;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+
+
+    @include media('<phone') {
+      bottom: 7.5rem;
+      height: 13.7rem;
+      width: 55rem;
+    }
+
+    &__icon {
+      @extend %cover;
+    }
   }
+
 }
 
