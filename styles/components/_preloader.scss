@@ -1,26 +1,42 @@
 @use '../utils/variables' as var;
 @use '../utils/mixins' as *;
 @use '../utils/functions' as func;
+@use '../utils/responsive' as *;
+
 @use '../shared/titles' as *;
+@use '../shared/descriptions' as *;
+
+@use 'sass:map';
 
 .preloader {
   @extend %cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %center;
+
   text-align: center;
+  display: none;
+  color: var.$color-quarter-spanish-white;
+  background: var.$color-contessa;
+
+  z-index: map.get(var.$z-indexes, 'preloader');
 
   &__text {
     @extend %title-53;
 
+    font-weight: normal;
     max-width: 66rem;
   }
 
 
   &__number {
+    @extend %description-14;
+
     position: absolute;
-    bottom: 0;
+    bottom: 7.3rem;
     left: 50%;
     transform: translateX(-50%);
+
+    @include media('<=phone') {
+      font-size: 2rem;
+    }
   }
 }

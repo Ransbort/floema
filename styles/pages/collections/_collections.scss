@@ -1,50 +1,124 @@
 @use '../../utils/variables' as var;
-@use '../../utils/mixins' as mixins;
+@use '../../utils/mixins' as *;
 @use '../../utils/functions' as func;
+@use '../../utils/responsive' as *;
+
+@use '../../shared/titles' as *;
+@use '../../shared/descriptions' as *;
+@use '../../shared/vertical-titles' as *;
 
 .collections {
-  &__wrapper {
+  @extend %cover;
 
+  background: var.$color-quicksand;
+  color: var.$color-quarter-spanish-white;
+
+  &__wrapper {
+    @extend %cover;
+
+    overflow: hidden;
   }
 
-  &__titles {
-    &__label {
 
+  &__titles {
+    @extend %vertical-titles;
+
+
+    &__label {
+      @extend %vertical-titles__label;
     }
 
     &__title {
+      @extend %vertical-titles__title;
 
+    }
+
+    @include media('<=phone') {
+      display: none;
     }
   }
 
   &__gallery {
-    &__wrapper {
+    @extend %cover;
 
+    &__wrapper {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     &__link {
+      display: block;
+      margin: 0 5.3rem;
 
     }
 
     &__media {
-      &____image {
+      width: 44.7rem;
+      height: 63.1rem;
+      position: relative;
 
+      &__image {
+        @extend %cover;
+        object-fit: cover;
       }
     }
   }
 
   &__content {
+    @extend %cover;
 
+    @include media('<=phone') {
+      display: none;
+    }
   }
 
   &__article {
-    &__title {
+    left: 8rem;
+    position: absolute;
+    opacity: 0;
+    bottom: 8rem;
 
+    &--active {
+      opacity: 1;
+    }
+
+    &__title {
+      @extend %title-60;
     }
 
     &__description {
+      @extend %description-16;
 
+      max-width: 46rem;
     }
   }
+}
+
+
+.collections__mobile {
+  display: flex;
+  position: absolute;
+  bottom: 5rem;
+
+  &__item {
+    width: 100vw;
+    padding-left: 5rem;
+
+    &__label {
+      font-size: 2rem;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+    }
+
+    &__title {
+      font-family: var.$font-george-x;
+      font-size: 12rem;
+    }
+  }
+
+
 }
 

@@ -1,68 +1,185 @@
 @use '../../utils/variables' as var;
-@use '../../utils/mixins' as mixins;
+@use '../../utils/mixins' as *;
 @use '../../utils/functions' as func;
+@use '../../utils/responsive' as *;
 
-.detail__wrapper {
+@use '../../shared/titles' as *;
+@use '../../shared/descriptions' as *;
 
+
+.detail {
+  @extend %cover;
+  @extend %center;
+
+  background-color: var.$color-quicksand;
+  color: var.$color-quarter-spanish-white;
+
+  @include media('<phone') {
+    height: auto;
+  }
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+
+    @include media('<phone') {
+      display: block;
+      margin: auto;
+      width: 66.1rem;
+      padding: 15rem 0 31.5rem;
+
+    }
+
+  }
+
+  &__media {
+    width: 55.4rem;
+    height: 78.2rem;
+    position: relative;
+
+    @include media('<phone') {
+      width: 100%;
+      height: 93.4rem;
+      margin: 0 auto 7.8rem;
+
+    }
+
+    &__image {
+      @extend %cover;
+      object-fit: cover;
+    }
+
+  }
+
+  &__information {
+    padding-left: 8.2rem;
+
+    @include media('<phone') {
+      padding-left: 0;
+    }
+
+    &__collection {
+      @extend %description-12;
+
+      margin-bottom: 4rem;
+      text-transform: uppercase;
+    }
+
+    &__title {
+      @extend %title-120;
+
+      max-width: 6rem;
+
+    }
+
+    &__content {
+      padding-left: 18rem;
+
+      @include media('<phone') {
+        padding-left: 0;
+      }
+    }
+
+    &__highlights {
+      @extend %description-16;
+      margin-top: 6rem;
+    }
+
+    &__highlight {
+      align-items: center;
+      display: flex;
+
+      &:not(:first-child) {
+        margin-top: 4rem;
+      }
+
+      &__icon {
+        //border: 1px solid var.$color-quarter-spanish-white;
+        //border-radius: 50%;
+
+        margin-right: 3.7rem;
+        width: 4rem;
+        height: 4rem;
+
+        @include media('<phone') {
+          width: 9.2rem;
+          height: 9.2rem;
+          margin-right: 5.8rem;
+        }
+      }
+
+      &__text {
+        @extend %description-16;
+
+      }
+    }
+
+    &__item {
+      display: flex;
+
+      &:not(:first-child) {
+        margin-top: 4rem;
+      }
+
+      &__title {
+        @extend %description-12;
+
+        width: 10rem;
+        padding-right: 2.5rem;
+
+        @include media('<phone') {
+          width: 15rem;
+          padding-right: 5rem;
+        }
+
+      }
+
+      &__description {
+        @extend %description-16;
+
+        letter-spacing: 0.03rem;
+        max-width: 44rem;
+      }
+    }
+
+    &__list {
+      margin-top: 4rem;
+    }
+
+    &__link {
+      @extend %title-30;
+
+      display: inline-block;
+      margin-top: 3rem;
+
+
+    }
+
+  }
+
+  &__button {
+    @extend %description-14;
+
+    align-items: center;
+    bottom: 5rem;
+    display: flex;
+    height: 6rem;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    width: 12.4rem;
+    z-index: 20;
+
+    @include media('<phone') {
+      width: 26.8rem;
+      height: 13rem;
+      font-size: 3rem;
+      bottom: 12rem;
+    }
+
+    &__icon {
+      @extend %cover;
+    }
+  }
 }
-
-.detail__media {
-
-}
-
-.detail__media__image {
-
-}
-
-.detail__information {
-
-}
-
-.detail__information__collection {
-
-}
-
-.detail__information__title {
-
-}
-
-.detail__information__content {
-
-}
-
-.detail__information__highlights {
-
-}
-
-.detail__information__highlight {
-
-}
-
-.detail__information__highlight__icon {
-
-}
-
-.detail__information__highlight__text {
-
-}
-
-.detail__information__list {
-
-}
-
-.detail__information__item {
-
-}
-
-.detail_information__item__title {
-
-}
-
-.detail__information__item__description {
-
-}
-
-.detail__information__link {
-
-}
-
